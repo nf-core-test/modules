@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mirpedrol/modules/meta-yml-new-structure/modules/meta-schema.json
+# # TODO nf-core: Add a description of the module and list keywords
+name: "bowtie_test"
+description: write your description here
+keywords:
+  - sort
+  - example
+  - genomics
+tools:
+  ## TODO nf-core: Add a description and other details for the software below
+  - "bowtie":
+      description: "An ultrafast memory-efficient short read aligner"
+      homepage: "None"
+      documentation: "None"
+      tool_dev_url: "None"
+      doi: ""
+      licence: ["Artistic-2.0"]
+      identifier: biotools:bowtie
+
+input:
+  # TODO nf-core: Update the information obtained from bio.tools and make sure that it is correct
+  - - meta:
+        type: map
+        description: Groovy Map containing sample information. e.g. `[ id:'sample1'
+          ]`
+    - data:
+        type: file
+        description: data file
+        pattern: '"*.fastq-solexa,fastq-sanger,fastq-illumina"'
+        ontologies:
+          - edam: http://edamontology.org/data_0006 # Data
+          - edam: http://edamontology.org/format_1933 # FASTQ-solexa
+          - edam: http://edamontology.org/format_1932 # FASTQ-sanger
+          - edam: http://edamontology.org/format_1931 # FASTQ-illumina
+output:
+  # TODO nf-core: Update the information obtained from bio.tools and make sure that it is correct
+  sequence_trace:
+    - - meta:
+          type: map
+          description: Groovy Map containing sample information. e.g. `[ id:'sample1'
+            ]`
+      - '"*.sam"':
+          type: file
+          description: sequence_trace file
+          pattern: '"*.sam"'
+          ontologies:
+            - edam: http://edamontology.org/data_0924 # Sequence trace
+            - edam: http://edamontology.org/format_2573 # SAM
+  data:
+    - - meta:
+          type: map
+          description: Groovy Map containing sample information. e.g. `[ id:'sample1'
+            ]`
+      - '"*.fastq"':
+          type: file
+          description: data file
+          pattern: '"*.fastq"'
+          ontologies:
+            - edam: http://edamontology.org/data_0006 # Data
+            - edam: http://edamontology.org/format_1930 # FASTQ
+  versions:
+    - versions.yml:
+        type: file
+        description: File containing software versions
+        pattern: versions.yml
+        ontologies:
+          - edam: http://edamontology.org/format_3750 # YAML
+authors:
+  - "@mirpedrol"
+maintainers:
+  - "@mirpedrol"
