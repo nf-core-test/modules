@@ -1,5 +1,5 @@
-include { WGET      } from '../../../modules/jvfe/wget/main'
-include { PROKKA     } from '../../../modules/nf-core/prokka/main'
+include { WGET      } from '../../../modules/nf-core-test/wget/main'
+include { PROKKA    } from '../../../modules/nf-core/prokka/main'
 
 workflow GET_GENOME_ANNOTATION {
     take:
